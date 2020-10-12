@@ -3,6 +3,10 @@ import './App.css';
 import { NavLink, Route, Switch, Redirect } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../utils/userService';
+import TripsPage from '../../pages/TripsPage/TripsPage';
+import LoginPage from '../LoginPage/LoginPage';
+
+
 
 
 class App extends Component {
@@ -27,23 +31,30 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          myRouteMate
-          <nav>
-            <NavLink exact to='/' user={this.state.user}>Routes List</NavLink>
-            <Route exact path='/signup' render={({ history }) => 
-            <SignupPage
-              history={history}
-              handleSignupOrLogin={this.handleSignupOrLogin}
-            />
-          }/>
-          </nav>
-        </header>
-        <main>
-         
-        </main>
-      </div>
+
+      <div>
+      <header className='header-footer'>myRouteMate</header>
+      <Switch>
+        <Route exact path='/' render={() =>
+          <TripsPage
+            user={this.state.user}
+            handleLogout={this.handleLogout}
+          />
+        }/>
+       <Route exact path='/signup' render={({ history }) => 
+          <SignupPage
+            history={history}
+            handleSignupOrLogin={this.handleSignupOrLogin}
+          />
+        }/>
+        <Route exact path='/login' render={({ history }) => 
+          <LoginPage
+            handleSignupOrLogin={this.handleSignupOrLogin}
+            history={history}
+          />
+        }/>
+      </Switch>
+    </div>
     );
   }
 }
