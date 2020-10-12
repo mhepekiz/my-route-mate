@@ -33,7 +33,6 @@ class App extends Component {
     return (
 
       <div>
-      <header className='header-footer'>myRouteMate</header>
       <Switch>
         <Route exact path='/' render={() =>
           <TripsPage
