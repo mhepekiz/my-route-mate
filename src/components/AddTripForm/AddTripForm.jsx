@@ -1,12 +1,17 @@
 import React, { Component } from "react";
+import { withRouter } from 'react-router';
 
 class AddTripForm extends Component {
   state = {
-    invalidForm: true,
     formData: {
-      name: "",
-      breed: "Mixed",
-      age: "0",
+      days: '',
+      startDate: '',
+      endDate: '',
+      startPoint: '',
+      endPoint: '',
+      maxRiders: '',
+      pillion: 'yes',
+      category: ''
     },
   };
 
@@ -15,6 +20,7 @@ class AddTripForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.handleAddTrip(this.state.formData);
+    this.props.history.push('/');
   };
 
   handleChange = e => {
@@ -49,20 +55,20 @@ class AddTripForm extends Component {
           </div>
           <div className="form-group">
             <label>Start Date (required)</label>
-            <input
+            <input type="date"
               className="form-control"
-              name="startdate"
-              value={this.state.formData.startdate}
+              name="startDate"
+              value={this.state.formData.startDate}
               onChange={this.handleChange}
               required
             />
           </div>
           <div className="form-group">
             <label>End Date (required)</label>
-            <input
+            <input type="date"
               className="form-control"
-              name="enddate"
-              value={this.state.formData.enddate}
+              name="endDate"
+              value={this.state.formData.endDate}
               onChange={this.handleChange}
               required
             />
@@ -71,8 +77,8 @@ class AddTripForm extends Component {
             <label>Start Point (required)</label>
             <input
               className="form-control"
-              name="startpoint"
-              value={this.state.formData.startpoint}
+              name="startPoint"
+              value={this.state.formData.startPoint}
               onChange={this.handleChange}
               required
             />
@@ -81,8 +87,8 @@ class AddTripForm extends Component {
             <label>End Point (required)</label>
             <input
               className="form-control"
-              name="endpoint"
-              value={this.state.formData.endpoint}
+              name="endPoint"
+              value={this.state.formData.endPoint}
               onChange={this.handleChange}
               required
             />
@@ -91,8 +97,8 @@ class AddTripForm extends Component {
             <label>Max Riders (required)</label>
             <input
               className="form-control"
-              name="maxriders"
-              value={this.state.formData.maxriders}
+              name="maxRiders"
+              value={this.state.formData.maxRiders}
               onChange={this.handleChange}
               required
             />
@@ -107,6 +113,20 @@ class AddTripForm extends Component {
               required
             />
           </div>
+          <div className="form-group">
+            <label>Category</label>
+            <select className="form-control"
+            name="category"
+            value={this.state.formData.category}
+            onChange={this.handleChange}
+            required
+            >
+              <option value="Racing">Racing</option>
+              <option value="Touring">Touring</option>
+              <option value="Enduro">Enduro</option>
+              <option value="Off-Road">Off-Road</option>
+            </select>
+          </div>
           <button
             type="submit"
             className="btn"
@@ -119,4 +139,4 @@ class AddTripForm extends Component {
     );
   }
 }
-export default AddTripForm;
+export default withRouter(AddTripForm);

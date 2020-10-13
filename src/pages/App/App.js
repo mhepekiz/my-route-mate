@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import './App.css';
-import { NavLink, Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
+import * as tripAPI from "../../utils/tripService";
 import userService from '../../utils/userService';
 import TripsPage from '../../pages/TripsPage/TripsPage';
 import LoginPage from '../LoginPage/LoginPage';
 import TripList from '../../components/TripList/TripList'
-
+import AddTripPage from '../AddTripPage/AddTripPage';
 
 
 class App extends Component {
@@ -28,12 +29,23 @@ class App extends Component {
     this.setState({ user: userService.getUser() });
   }
 
+  handleAddTrip = async newTrpData => {
+    const newTrp = await tripAPI.create(newTrpData);
+    this.setState(
+      state => ({
+        addtrip: [...state.addtrip, newTrp],
+      }),
+      // Using cb to wait for state to update before rerouting
+      () => this.props.history.push("/")
+    );
+  };
+
 
   render() {
     return (
 
       <div>
-      <Switch>
+        <Switch>
         <Route exact path='/' render={() =>
           <TripsPage
             user={this.state.user}
@@ -52,7 +64,14 @@ class App extends Component {
             history={history}
           />
         }/>
-      </Switch>
+          <Route exact path='/addtrip' render={({ history }) => 
+          <AddTripPage
+          history={history}
+          handleAddTrip={this.handleAddTrip}
+            /> }
+        />
+        </Switch>
+
       <TripList />
     </div>
     );

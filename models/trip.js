@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 
 const tripSchema = new mongoose.Schema({
-    userid: String,
+    userid: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     days: String,
     startDate: Date,
     endDate: Date,
