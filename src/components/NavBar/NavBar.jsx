@@ -13,19 +13,51 @@ const NavBar = (props) => {
         myRouteMate
       </h1>
       <h2 class="subtitle">
-        WELCOME, <b>{props.user.name}</b> |      <Link to='' onClick={props.handleLogout} className='NavBar-link'>LOG OUT</Link>
+        WELCOME, <b>{props.user.name}</b>
 
       </h2>
     </div>
   </div>
 </section>
 
+
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+      <h4 class="is-h4">
+        <a class="menu-link" href="">ADD NEW TRIP</a> &nbsp;&nbsp; | &nbsp;&nbsp;<a class="menu-link" href="#">MY PROFILE</a> &nbsp;&nbsp; | &nbsp;&nbsp; <a class="menu-link" href="#" onClick={props.handleLogout}>LOGOUT</a>
+      </h4>
+    </div>
+  </div>
+</section>
+
+
     </div>
     :
     <div>
-      <Link to='/login' className='NavBar-link'>LOG IN</Link>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      <Link to='/signup' className='NavBar-link'>SIGN UP</Link>
+      
+<section class="hero is-warning">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        myRouteMate
+      </h1>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+      <h4 class="is-h4">
+        <a class="menu-link" href="/signup">SIGNUP</a> &nbsp;&nbsp; | &nbsp;&nbsp;<a class="menu-link" href="/login">LOGIN</a> &nbsp;&nbsp; | 
+      </h4>
+    </div>
+  </div>
+</section>
+
+
     </div>;
 
   return (

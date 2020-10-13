@@ -1,0 +1,8 @@
+a.menu-link {
+    color: #fac800;
+    font-weight: 600;
+}
+
+a.menu-link:hover {
+    color: #ffffff;
+}

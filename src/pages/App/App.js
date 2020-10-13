@@ -5,7 +5,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../utils/userService';
 import TripsPage from '../../pages/TripsPage/TripsPage';
 import LoginPage from '../LoginPage/LoginPage';
-
+import TripList from '../../components/TripList/TripList'
 
 
 
@@ -53,6 +53,7 @@ class App extends Component {
           />
         }/>
       </Switch>
+      <TripList />
     </div>
     );
   }
