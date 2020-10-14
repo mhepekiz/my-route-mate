@@ -14,8 +14,8 @@ const TripsPage = (props) => {
         <div className="table-container">
   <table className="table">
     <tr><td>
-    {props.motorcycles.map(m => (
-          <TripList motorcycle={m} key={m._id}
+    {props.trips.map(trip => (
+          <TripList trip={trip} key={trip._id}
           handleDeleteTrip={props.handleDeleteTrip} />
         ))}
         </td></tr>

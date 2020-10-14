@@ -16,12 +16,13 @@ class App extends Component {
     this.state = {
       user: userService.getUser(),
       addtrip: [],
-      motorcycles: [],
+      history: [],
+      trips: []
     };
   }
   async componentDidMount() {
-    const motorcycles = await tripAPI.getAll();
-    this.setState({motorcycles});
+    const trips = await tripAPI.getAll();
+    this.setState({trips});
   }
 
   handleLogout = () => {
@@ -38,7 +39,7 @@ class App extends Component {
     const newTrp = await tripAPI.create(newTrpData);
     this.setState(
       state => ({
-        addtrip: [...state.addtrip, newTrp],
+        trip: [...state.trip, newTrp],
       }),
       () => this.props.history.push("/")
     );
@@ -48,7 +49,7 @@ class App extends Component {
   handleDeleteTrip = async id => {
     await tripAPI.deleteOne(id);
     this.setState(state => ({
-      motorcycle: state.motorcycle.filter(p => p._id !== id)
+      trips: this.state.trips.filter(p => p._id !== id)
     }), () => this.props.history.push('/')
     );
   }
@@ -64,7 +65,7 @@ class App extends Component {
         <Route exact path='/' render={() =>
           <TripsPage
             user={this.state.user}
-            motorcycles={this.state.motorcycles}
+            trips={this.state.trips}
             handleLogout={this.handleLogout}
             handleDeleteTrip={this.handleDeleteTrip}
           />
