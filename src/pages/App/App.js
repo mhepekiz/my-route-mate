@@ -15,6 +15,7 @@ class App extends Component {
     super();
     this.state = {
       user: userService.getUser(),
+      addtrip: [],
       motorcycles: []
     };
   }
@@ -39,7 +40,7 @@ class App extends Component {
         addtrip: [...state.addtrip, newTrp],
       }),
       // Using cb to wait for state to update before rerouting
-      () => this.props.history.push("/home")
+      () => this.props.history.push("/")
     );
   };
 

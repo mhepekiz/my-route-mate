@@ -11,10 +11,16 @@ const TripsPage = (props) => {
           user={props.user}
           handleLogout={props.handleLogout}
         />
-        {props.motorcycles.map(m => (
+        <div className="table-container">
+  <table className="table">
+    <tr><td>
+    {props.motorcycles.map(m => (
           <TripList motorcycle={m} key={m._id} />
         ))}
-      </div>
+        </td></tr>
+        </table>
+</div>
+</div>
     );
   
   };
