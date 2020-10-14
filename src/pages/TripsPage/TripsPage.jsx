@@ -15,7 +15,8 @@ const TripsPage = (props) => {
   <table className="table">
     <tr><td>
     {props.motorcycles.map(m => (
-          <TripList motorcycle={m} key={m._id} />
+          <TripList motorcycle={m} key={m._id}
+          handleDeleteTrip={props.handleDeleteTrip} />
         ))}
         </td></tr>
         </table>

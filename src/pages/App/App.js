@@ -16,7 +16,7 @@ class App extends Component {
     this.state = {
       user: userService.getUser(),
       addtrip: [],
-      motorcycles: []
+      motorcycles: [],
     };
   }
   async componentDidMount() {
@@ -33,16 +33,27 @@ class App extends Component {
     this.setState({ user: userService.getUser() });
   }
 
+
   handleAddTrip = async newTrpData => {
     const newTrp = await tripAPI.create(newTrpData);
     this.setState(
       state => ({
         addtrip: [...state.addtrip, newTrp],
       }),
-      // Using cb to wait for state to update before rerouting
       () => this.props.history.push("/")
     );
   };
+
+
+  handleDeleteTrip = async id => {
+    await tripAPI.deleteOne(id);
+    this.setState(state => ({
+      motorcycle: state.motorcycle.filter(p => p._id !== id)
+    }), () => this.props.history.push('/')
+    );
+  }
+
+
 
   render() {
     return (
@@ -55,7 +66,7 @@ class App extends Component {
             user={this.state.user}
             motorcycles={this.state.motorcycles}
             handleLogout={this.handleLogout}
-            
+            handleDeleteTrip={this.handleDeleteTrip}
           />
         }/>
        <Route exact path='/signup' render={({ history }) => 
