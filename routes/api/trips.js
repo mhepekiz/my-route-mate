@@ -3,7 +3,7 @@ const router = express.Router();
 const tripsCtrl = require('../../controllers/trips');
 
 /*---------- Public Routes ----------*/
-router.post('/', tripsCtrl.create);
+router.post('/addtrip', tripsCtrl.create);
 router.get('/', tripsCtrl.index);
 
 

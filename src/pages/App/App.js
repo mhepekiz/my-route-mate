@@ -6,7 +6,6 @@ import * as tripAPI from "../../utils/tripService";
 import userService from '../../utils/userService';
 import TripsPage from '../../pages/TripsPage/TripsPage';
 import LoginPage from '../LoginPage/LoginPage';
-import TripList from '../../components/TripList/TripList'
 import AddTripPage from '../AddTripPage/AddTripPage';
 
 
@@ -15,10 +14,14 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      user: userService.getUser()
+      user: userService.getUser(),
+      motorcycles: []
     };
   }
-
+  async componentDidMount() {
+    const motorcycles = await tripAPI.getAll();
+    this.setState({motorcycles});
+  }
 
   handleLogout = () => {
     userService.logout();
@@ -36,20 +39,22 @@ class App extends Component {
         addtrip: [...state.addtrip, newTrp],
       }),
       // Using cb to wait for state to update before rerouting
-      () => this.props.history.push("/")
+      () => this.props.history.push("/home")
     );
   };
-
 
   render() {
     return (
 
       <div>
         <Switch>
+          
         <Route exact path='/' render={() =>
           <TripsPage
             user={this.state.user}
+            motorcycles={this.state.motorcycles}
             handleLogout={this.handleLogout}
+            
           />
         }/>
        <Route exact path='/signup' render={({ history }) => 
@@ -72,7 +77,6 @@ class App extends Component {
         />
         </Switch>
 
-      <TripList />
     </div>
     );
   }
