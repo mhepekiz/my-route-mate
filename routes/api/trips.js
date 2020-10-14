@@ -6,7 +6,7 @@ const tripsCtrl = require('../../controllers/trips');
 router.post('/', tripsCtrl.create);
 router.get('/', tripsCtrl.index);
 router.delete('/:id', tripsCtrl.delete);
-
+router.put('/:id', tripsCtrl.update);
 
 
 

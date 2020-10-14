@@ -7,11 +7,21 @@ function TripList(props) {
       <div className='panel panel-default'>
         <div className="panel-heading">
           <h3 className='panel-title'>{props.trip.startPoint} - {props.trip.endPoint} - {props.trip._id}</h3>
-          <button
- className="btn btn-xs btn-danger margin-left-10"
+          <Link
+ className='button is-dark is-small'
+ to={{
+   pathname: '/edit',
+   state: {trip: props.trip}
+ }}
+>
+ <b>EDIT</b>
+</Link>
+
+&nbsp;&nbsp;<button
+ className="button is-danger is-small"
  onClick={() => props.handleDeleteTrip(props.trip._id)}
 >
- DELETE
+ <b>DELETE</b>
 </button>
         </div>
        

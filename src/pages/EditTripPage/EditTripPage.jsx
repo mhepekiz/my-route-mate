@@ -1,54 +1,47 @@
-import React, { Component } from "react";
-import { withRouter } from 'react-router';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+// import './EditTripPage.css';
+import NavBar from '../../components/NavBar/NavBar';
 
-class AddTripForm extends Component {
-  state = {
-    formData: {
-      days: '',
-      startDate: '',
-      endDate: '',
-      startPoint: '',
-      endPoint: '',
-      googleMaps: '',
-      maxRiders: '',
-      pillion: 'yes',
-      category: ''
-    },
-  };
+class EditTripPage extends Component {
+ state = {
+   invalidForm: false,
+   formData: this.props.location.state.trip
+ };
 
-  formRef = React.createRef();
+ formRef = React.createRef();
 
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.handleAddTrip(this.state.formData);
-    this.props.history.push('/');
-  };
+ handleSubmit = e => {
+   e.preventDefault();
+   this.props.handleUpdateTrip(this.state.formData);
+ };
 
-  handleChange = e => {
-    const formData = {
-      ...this.state.formData,
-      [e.target.name]: e.target.value,
-    };
-    this.setState({
-      formData,
-      invalidForm: !this.formRef.current.checkValidity(),
-    });
-  };
+ handleChange = e => {
+   const formData = {...this.state.formData, [e.target.name]: e.target.value};
+   this.setState({
+     formData,
+     invalidForm: !this.formRef.current.checkValidity()
+   });
+ };
 
-  render() {
+ render() {
     return (
+        <div className="TripsPage">
+        <NavBar
+         
+        />
       <>
       <div class="columns">
         <div class="column is-3"></div>
         <div class="column is-6">
-        
+
         <h1>Add Trip</h1>
         <form
           ref={this.formRef}
           autoComplete="off"
           onSubmit={this.handleSubmit}
         >
-          <div className="field">
+          <div className="form-group">
             <label>Days (required)</label>
             <input
               className="input"
@@ -127,12 +120,9 @@ class AddTripForm extends Component {
               required
             />
           </div>
-
-          
           <div className="form-group">
-          <div className="select">
-          <label>Category</label>
-          <select 
+            <label>Category</label>
+            <select className="select"
             name="category"
             value={this.state.formData.category}
             onChange={this.handleChange}
@@ -142,22 +132,22 @@ class AddTripForm extends Component {
               <option value="Touring">Touring</option>
               <option value="Enduro">Enduro</option>
               <option value="Off-Road">Off-Road</option>
-          </select>
+            </select>
           </div>
-          </div>
-          <br /><br /><button
+          <br /><button
             type="submit"
             className="button is-dark"
             disabled={this.state.invalidForm}
           >
-            ADD TRIP
+            UPDATE TRIP
           </button>
         </form>
-      </div>
+       </div>
       <div class="column is-3"></div>
       </div>
       </>
+        </div>
     );
   }
 }
-export default withRouter(AddTripForm);
+export default EditTripPage;

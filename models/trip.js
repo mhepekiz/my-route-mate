@@ -8,7 +8,8 @@ const tripSchema = new mongoose.Schema({
     endDate: Date,
     startPoint: String,
     endPoint: String,
-    maxRider: String,
+    googleMaps: String,
+    maxRiders: String,
     pillion: {type: String, enum: ['yes', 'no'], default: 'yes'},
     category: String
 }, {

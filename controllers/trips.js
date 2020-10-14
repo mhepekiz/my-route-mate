@@ -3,7 +3,8 @@ const Trip = require('../models/trip');
 module.exports = {
     index,
     create,
-    delete: deleteOne
+    delete: deleteOne,
+    update
   };
   
   async function create(req, res) {
@@ -12,7 +13,8 @@ module.exports = {
   }
 
   async function index(req, res) {
-    const trips = await Trip.find({});
+    let method = { startDate : -1 };
+    const trips = await Trip.find({}).sort(method);
     res.status(200).json(trips);
   }
 
@@ -20,5 +22,11 @@ module.exports = {
     const deletedTrip = await Trip.findByIdAndRemove(req.params.id);
     res.status(200).json(deletedTrip);
   }
+
+  async function update(req, res) {
+    const updatedTrip = await Trip.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    res.status(200).json(updatedTrip);
+  }
+  
 
   

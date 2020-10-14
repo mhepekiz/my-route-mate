@@ -7,7 +7,7 @@ import userService from '../../utils/userService';
 import TripsPage from '../../pages/TripsPage/TripsPage';
 import LoginPage from '../LoginPage/LoginPage';
 import AddTripPage from '../AddTripPage/AddTripPage';
-
+import EditTripPage from '../EditTripPage/EditTripPage';
 
 class App extends Component {
   
@@ -55,6 +55,19 @@ class App extends Component {
   }
 
 
+  handleUpdateTrip = async updatedTrpData => {
+    const updatedTrip = await tripAPI.update(updatedTrpData);
+    // Using map to replace just the puppy that was updated
+    const newTripsArray = this.state.trips.map(trip => 
+      trip._id === updatedTrip._id ? updatedTrip : trip
+    );
+    this.setState(
+      {trips: newTripsArray},
+      // This cb function runs after state is updated
+      () => this.props.history.push('/')
+    );
+   }
+
 
   render() {
     return (
@@ -86,6 +99,13 @@ class App extends Component {
           <AddTripPage
           history={history}
           handleAddTrip={this.handleAddTrip}
+            /> }
+        />
+
+        <Route exact path='/edit' render={({ location }) => 
+          <EditTripPage
+          handleUpdateTrip={this.handleUpdateTrip}
+          location={location}
             /> }
         />
         </Switch>
