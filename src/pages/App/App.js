@@ -39,7 +39,7 @@ class App extends Component {
     const newTrp = await tripAPI.create(newTrpData);
     this.setState(
       state => ({
-        trip: [...state.trip, newTrp],
+        trips: [...state.trips, newTrp],
       }),
       () => this.props.history.push("/")
     );
