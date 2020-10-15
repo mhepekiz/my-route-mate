@@ -99,6 +99,7 @@ class App extends Component {
             userService.getUser() ?
           <AddTripPage
           history={history}
+          thisUser={this.state.user}
           handleAddTrip={this.handleAddTrip}
             /> :
           <Redirect to='/login' />

@@ -8,12 +8,12 @@ class CallMaps extends Component {
       let mapLink = `https://www.google.com/maps/embed/v1/directions?key=AIzaSyDLBMQay-37XO38g0jbkyugVkkvpL05CwE&origin=${this.props.startPoint}&destination=${this.props.endPoint}`
         if(this.props.routeMap){
             return( <>
-     <iframe src={mapLink} height="370" width="100%"></iframe>
+     <iframe src={mapLink} height="507" width="100%"></iframe>
       </> ); 
         } else {
             return( <>
             <figure class="image is-4by3">
-      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
+      <img src="https://exploreeasterneurope.co.uk/wp-content/uploads/2020/02/how-to-plan-motorcycle-trip-3.jpg" alt="Placeholder image" />
     </figure>
       </>);
         }

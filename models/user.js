@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const SALT_ROUNDS = 6;
 
 const userSchema = new mongoose.Schema({
+    userid: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     username: {type: String, required: true, lowercase: true, unique: true},
     name: String,
     phone: String,

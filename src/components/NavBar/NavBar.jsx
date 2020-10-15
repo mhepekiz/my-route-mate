@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './NavBar.css';
 
 const NavBar = (props) => {
@@ -12,7 +11,7 @@ const NavBar = (props) => {
       <div class="columns">
         <div class="column is-2"> <img class="logo" src="myroute.png"/></div>
         <div class="column is-10"> <h2 class="subtitle">
-        <b>|</b> WELCOME, <b>{props.user.name}</b>
+        <b>|</b> WELCOME, <b>{props.user._id}</b>
 
       </h2></div>
       </div>

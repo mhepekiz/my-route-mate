@@ -8,6 +8,8 @@ module.exports = {
   };
   
   async function create(req, res) {
+    // Assign the logged in user's _id
+    req.body.userid = req.user._id;
     const trip = await Trip.create(req.body);
     res.status(201).json(trip);
   }

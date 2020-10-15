@@ -4,6 +4,8 @@ import './AddTripPage.css';
 import NavBar from '../../components/NavBar/NavBar';
 
 
+
+
 class AddTripPage extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +20,9 @@ class AddTripPage extends Component {
     return (
       <div className='AddTripPage'>
         <NavBar />
-        <AddTripForm {...this.props} updateMessage={this.updateMessage} />
+        <AddTripForm {...this.props}
+        hoppa={this.state.user}
+        updateMessage={this.updateMessage} />
         <p>{this.state.message}</p>
       </div>
     );
