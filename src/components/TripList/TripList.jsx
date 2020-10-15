@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './TripList.css';
 import JoinButton from '../JoinButton/JoinButton';
+import CallMaps from '../CallMaps/CallMaps';
 
 
 function TripList(props) { 
@@ -11,9 +12,10 @@ function TripList(props) {
 
       <div class="card">
   <div class="card-image">
-    <figure class="image is-4by3">
-      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
-    </figure>
+    <CallMaps 
+    routeMap={props.trip.googleMaps}
+    startPoint={props.trip.startPoint}
+    endPoint={props.trip.endPoint}/>
   </div>
   <div class="card-content">
     <div class="media">
