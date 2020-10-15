@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import * as tripAPI from "../../utils/tripService";
 import userService from '../../utils/userService';
@@ -95,19 +95,25 @@ class App extends Component {
             history={history}
           />
         }/>
-          <Route exact path='/addtrip' render={({ history }) => 
+          <Route exact path='/addtrip' render={({ history }) => (
+            userService.getUser() ?
           <AddTripPage
           history={history}
           handleAddTrip={this.handleAddTrip}
-            /> }
+            /> :
+          <Redirect to='/login' />
+          )}
         />
 
-        <Route exact path='/edit' render={({ location }) => 
+        <Route exact path='/edit' render={({ location }) => (
+          userService.getUser() ?
           <EditTripPage
           handleUpdateTrip={this.handleUpdateTrip}
           location={location}
-            /> }
-        />
+            /> :
+            <Redirect to='/login' />
+            )}
+          />
         </Switch>
 
     </div>

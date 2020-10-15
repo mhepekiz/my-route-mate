@@ -57,7 +57,7 @@ const NavBar = (props) => {
   <div class="hero-body">
     <div class="container">
       <h4 class="is-h4">
-        <a class="menu-link" href="/signup">SIGNUP</a> &nbsp;&nbsp; | &nbsp;&nbsp;<a class="menu-link" href="/login">LOGIN</a> &nbsp;&nbsp; | 
+      <a class="menu-link" href="/addtrip">ADD NEW ROUTE</a> &nbsp;&nbsp; | &nbsp;&nbsp;<a class="menu-link" href="/signup">SIGNUP</a> &nbsp;&nbsp; | &nbsp;&nbsp;<a class="menu-link" href="/login">LOGIN</a> &nbsp;&nbsp; | 
       </h4>
     </div>
   </div>
