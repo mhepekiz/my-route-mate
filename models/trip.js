@@ -5,7 +5,7 @@ const tripSchema = new mongoose.Schema({
     userid: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     days: String,
     startDate: Date,
-    endDate: Date,
+    endDate: String,
     startPoint: String,
     endPoint: String,
     googleMaps: String,

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './TripList.css';
+import JoinButton from '../JoinButton/JoinButton';
 
 
 function TripList(props) { 
@@ -28,8 +29,8 @@ function TripList(props) {
     </div>
 
     <div class="content">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+     <b>Start Date :</b> {props.trip.startDate}<br />
+     <b>End Date   :</b> {props.trip.endDate}
       <a href="#">#css</a> <a href="#">#responsive</a>
       <br />
       <Link
@@ -45,15 +46,10 @@ function TripList(props) {
  onClick={() => props.handleDeleteTrip(props.trip._id)}
 >
  <b>DELETE</b>
-</button>&nbsp;&nbsp;&nbsp;&nbsp;<button
- className="button is-warning is-small is-pulled-right">
- <b>{props.trip.maxRiders} Riders to GO</b>
-</button>
-<button
- className="button is-dark is-small is-pulled-right">
- <b><span class="heart">&#10084;</span> Join</b>
-</button>
-
+</button>&nbsp;&nbsp;&nbsp;&nbsp;
+<JoinButton
+  riders={props.trip.maxRiders}
+  />
 
     </div>
   </div>

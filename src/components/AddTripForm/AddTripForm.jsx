@@ -59,8 +59,8 @@ class AddTripForm extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Start Date (required)</label>
-            <input type="date"
+            <label>Start Date Time (required)</label>
+            <input type="datetime-local"
               className="input"
               name="startDate"
               value={this.state.formData.startDate}
