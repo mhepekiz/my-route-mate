@@ -6,3 +6,11 @@ a.menu-link {
 a.menu-link:hover {
     color: #ffffff;
 }
+
+img.logo{
+    width: 220px;
+}
+
+.subtitle {
+    margin-top: 28px;
+}

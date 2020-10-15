@@ -9,13 +9,13 @@ const NavBar = (props) => {
 <section class="hero is-warning">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">
-        myRouteMate
-      </h1>
-      <h2 class="subtitle">
-        WELCOME, <b>{props.user.name}</b>
+      <div class="columns">
+        <div class="column is-2"> <img class="logo" src="myroute.png"/></div>
+        <div class="column is-10"> <h2 class="subtitle">
+        <b>|</b> WELCOME, <b>{props.user.name}</b>
 
-      </h2>
+      </h2></div>
+      </div>
     </div>
   </div>
 </section>
