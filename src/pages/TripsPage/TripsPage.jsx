@@ -11,17 +11,18 @@ const TripsPage = (props) => {
           user={props.user}
           handleLogout={props.handleLogout}
         />
-        <div className="table-container">
-  <table className="table">
-    <tr><td>
-    {props.trips.map(trip => (
+
+    <>
+    <div className="container-trip">
+      <div className="PuppyListPage-grid">
+      {props.trips.map(trip => (
           <TripList trip={trip} key={trip._id}
           handleDeleteTrip={props.handleDeleteTrip}
           />
         ))}
-        </td></tr>
-        </table>
-</div>
+      </div>
+      </div>
+    </>
 </div>
     );
   

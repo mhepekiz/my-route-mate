@@ -37,27 +37,36 @@ class LoginPage extends Component {
     return (
       <div className="LoginPage">
         <NavBar />
-        <header className="header-footer">Log In</header>
-        <form className="form-horizontal" onSubmit={this.handleSubmit} >
+        <>
+      <div class="columns">
+        <div class="column is-4"></div>
+        <div class="column is-4">
+          <div className="container">
+          <h4 className="is-h4">Login</h4></div>
+         <form className="form-horizontal" onSubmit={this.handleSubmit} >
           <div className="form-group">
             <div className="col-sm-12">
-              <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+              <input type="email" className="input" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
             </div>
           </div>
           <div className="form-group">
             <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
+              <input type="password" className="input" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
             </div>
           </div>
           <div className="form-group">
             <div className="col-sm-12 text-center">
-              <button className="btn btn-default">Log In</button>&nbsp;&nbsp;&nbsp;
-              <Link to='/'>Cancel</Link>
+              <br/><br /><button className="button is-dark">Log In</button>&nbsp;&nbsp;&nbsp;
+              <Link className="button is-warning" to='/'>Cancel</Link>
             </div>
           </div>
         </form>
+        </div>
+      <div class="column is-4"></div>
       </div>
-    );
+      </>
+      </div>
+      );
   }
 }
 

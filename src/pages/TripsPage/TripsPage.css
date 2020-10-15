@@ -3,3 +3,15 @@ body {
 }
 
 
+
+.PuppyListPage-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-gap: 50px;
+  }
+
+.container-trip {
+    width: 100%;
+    align-items: center;
+}
