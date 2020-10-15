@@ -48,11 +48,17 @@ const NavBar = (props) => {
 
 
 <section class="hero is-dark">
-  <div class="hero-body">
-    <div class="container">
-      <h4 class="is-h4">
+
+<div class="container">
+      <div class="columns">
+        <div class="column is-2"> <img class="logo" src="myroute.png"/></div>
+        <div class="column is-10"> <h2 class="subtitle">
+        <b>|</b> <h4 class="is-h4">
         <a class="menu-link" href="/signup">SIGNUP</a> &nbsp;&nbsp; | &nbsp;&nbsp;<a class="menu-link" href="/login">LOGIN</a> &nbsp;&nbsp; | 
       </h4>
+
+     </div>
+      </div>
     </div>
   </div>
 </section>
