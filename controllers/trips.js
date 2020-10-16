@@ -4,7 +4,7 @@ module.exports = {
     index,
     create,
     delete: deleteOne,
-    update
+    update,
   };
   
   async function create(req, res) {
@@ -19,6 +19,7 @@ module.exports = {
     const trips = await Trip.find({}).sort(method);
     res.status(200).json(trips);
   }
+  
 
   async function deleteOne(req, res) {
     const deletedTrip = await Trip.findByIdAndRemove(req.params.id);

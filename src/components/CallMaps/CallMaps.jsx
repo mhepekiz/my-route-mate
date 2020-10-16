@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './CallMaps.css';
 
 class CallMaps extends Component {
 
@@ -8,7 +9,7 @@ class CallMaps extends Component {
       let mapLink = `https://www.google.com/maps/embed/v1/directions?key=AIzaSyDLBMQay-37XO38g0jbkyugVkkvpL05CwE&origin=${this.props.startPoint}&destination=${this.props.endPoint}`
         if(this.props.routeMap){
             return( <>
-     <iframe src={mapLink} height="507" width="100%"></iframe>
+     <iframe src={mapLink} height="375" width="100%"></iframe>
       </> ); 
         } else {
             return( <>

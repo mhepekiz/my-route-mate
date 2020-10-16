@@ -5,19 +5,21 @@ import TripList from '../../components/TripList/TripList';
 
 
 const TripsPage = (props) => {
+  
     return (
       <div className="TripsPage">
         <NavBar
           user={props.user}
           handleLogout={props.handleLogout}
         />
-
+    
     <>
     <div className="container-trip">
-      <div className="PuppyListPage-grid">
+      <div className="TripListPage-grid">
       {props.trips.map(trip => (
           <TripList trip={trip} key={trip._id}
           handleDeleteTrip={props.handleDeleteTrip}
+          user={props.user}
           />
         ))}
       </div>
