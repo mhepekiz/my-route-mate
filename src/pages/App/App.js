@@ -46,6 +46,7 @@ class App extends Component {
   };
 
 
+
   handleDeleteTrip = async id => {
     await tripAPI.deleteOne(id);
     this.setState(state => ({
@@ -57,13 +58,11 @@ class App extends Component {
 
   handleUpdateTrip = async updatedTrpData => {
     const updatedTrip = await tripAPI.update(updatedTrpData);
-    // Using map to replace just the puppy that was updated
     const newTripsArray = this.state.trips.map(trip => 
       trip._id === updatedTrip._id ? updatedTrip : trip
     );
     this.setState(
       {trips: newTripsArray},
-      // This cb function runs after state is updated
       () => this.props.history.push('/')
     );
    }
@@ -74,7 +73,6 @@ class App extends Component {
 
       <div>
         <Switch>
-          
         <Route exact path='/' render={() =>
           <TripsPage
             user={this.state.user}
@@ -106,6 +104,7 @@ class App extends Component {
           )}
         />
 
+      
         <Route exact path='/edit' render={({ location }) => (
           userService.getUser() ?
           <EditTripPage

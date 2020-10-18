@@ -23,6 +23,8 @@ export function update(trp) {
   }).then(res => res.json());
 }
 
+
+
 export function deleteOne(id) {
   return fetch(`${BASE_URL}/${id}`, {
     method: "DELETE",

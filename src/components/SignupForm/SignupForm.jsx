@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
+import './SignupForm.css';
 
 class SignupForm extends Component {
 
@@ -39,65 +40,130 @@ class SignupForm extends Component {
   render() {
     return (
         <div>
-        <header className="header-footer">Sign Up</header>
+        <div class="columns">
+        <div class="column is-4"></div>
+        <div class="column is-4">
+       <div class="pageHead">
+        <h1 class="title">Signup</h1>
+        </div>
+
         <form className="form-horizontal" onSubmit={this.handleSubmit} >
-         <div className="form-group">
-            <div className="col-sm-12">
-              <input type="text" className="form-control" placeholder="UserName" value={this.state.username} name="username" onChange={this.handleChange} />
-            </div>
-            </div>  
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="text" className="form-control" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange} />
-            </div>
+
+        <div className="field">
+          <label class="label">UserName (required)</label>
+            <input
+              className="input"
+              name="username"
+              value={this.state.username} 
+              onChange={this.handleChange}
+              required
+            />
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="tel" className="form-control" placeholder="Phone" value={this.state.phone} name="phone" onChange={this.handleChange} />
-            </div>
+          <div className="field">
+          <label class="label">Name (required)</label>
+            <input
+              className="input"
+              name="name"
+              value={this.state.name} 
+              onChange={this.handleChange}
+              required
+            />
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
-            </div>
+          <div className="field">
+          <label class="label">Phone (required)</label>
+            <input
+              className="input"
+              name="phone"
+              value={this.state.phone} 
+              onChange={this.handleChange}
+              required
+            />
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="text" className="form-control" placeholder="CycleBrand" value={this.state.cyclebrand} name="cyclebrand" onChange={this.handleChange} />
-            </div>
+          <div className="field">
+          <label class="label">Email (required)</label>
+            <input
+              className="input"
+              name="email"
+              value={this.state.email} 
+              onChange={this.handleChange}
+              required
+            />
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="text" className="form-control" placeholder="CycleModel" value={this.state.cyclemodel} name="cyclemodel" onChange={this.handleChange} />
-            </div>
+          <div className="field">
+          <label class="label">Motorcycle Brand</label>
+            <input
+              className="input"
+              name="cyclebrand"
+              value={this.state.cyclebrand} 
+              onChange={this.handleChange}
+            />
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="text" className="form-control" placeholder="RideYears" value={this.state.rideyears} name="rideyears" onChange={this.handleChange} />
-            </div>
+          <div className="field">
+          <label class="label">Motorcycle Model</label>
+            <input
+              className="input"
+              name="cyclemodel"
+              value={this.state.cyclemodel} 
+              onChange={this.handleChange}
+            />
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="text" className="form-control" placeholder="Detail" value={this.state.detailedinfo} name="detailedinfo" onChange={this.handleChange} />
-            </div>
+          <div className="field">
+          <label class="label">Ride Experience (Years)</label>
+            <input
+              className="input"
+              name="rideyears"
+              value={this.state.rideyears} 
+              onChange={this.handleChange}
+              required
+            />
           </div>
-           <div className="form-group">
-            <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} />
-            </div>
+          <div className="field">
+          <label class="label">Detail </label>
+            <input
+              className="input"
+              name="detailedinfo"
+              value={this.state.detailedinfo} 
+              onChange={this.handleChange}
+              required
+            />
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
-            </div>
+          <div className="field">
+          <label class="label">Password (required)</label>
+            <input
+              className="password"
+              name="password"
+              value={this.state.password} 
+              onChange={this.handleChange}
+              required
+            />
+          </div>
+          <div className="field">
+          <label class="label">Confirm Password (required)</label>
+            <input
+              className="password"
+              name="passwordConf"
+              value={this.state.passwordConf} 
+              onChange={this.handleChange}
+              required
+            />
           </div>
           <div className="form-group">
             <div className="col-sm-12 text-center">
-              <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
-              <Link to='/'>Cancel</Link>
+            <button
+            type="submit"
+            className="button is-dark"
+            disabled={this.isFormInvalid()}
+          >
+            <b>SIGN UP</b>
+          </button>
+              &nbsp;&nbsp;
+              <Link to='/' class="button is-warning"><b>CANCEL</b></Link>
             </div>
           </div>
         </form>
+        </div>
+      <div class="column is-4"></div>
+      </div>
       </div>
     );
   }

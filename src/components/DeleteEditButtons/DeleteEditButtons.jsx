@@ -6,8 +6,12 @@ class DeleteEditButtons extends Component {
 
   
     render() {
-      //let currentUser = userService.getUser()._id
-      if (this.props.user._id === this.props.tripUser) {
+
+      return (
+        <div>
+      {(() => {
+        if ((this.props.user._id === this.props.tripUser) || (this.props.user.admin==="yes")) {
+      
             return( 
               <>
             <Link
@@ -26,10 +30,15 @@ class DeleteEditButtons extends Component {
             </button>
             </>
             );
-          } else { return(<div></div>)}
-          
+         
+        } else {
+          return(<div></div>);
         }
-    }    
+      })()}
+    </div>
+  )
+} }
+    
 
 
 export default DeleteEditButtons;

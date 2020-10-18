@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './LoginPage.css';
 import userService from '../../utils/userService';
 import NavBar from '../../components/NavBar/NavBar';
+import Bulma from '@vizuaalog/bulmajs';
 
 class LoginPage extends Component {
   
@@ -29,7 +30,6 @@ class LoginPage extends Component {
     } catch (err) {
       // Do not alert in your projects,
       // show a modal or some UI instead
-      alert('Invalid login');
     }
   }
 

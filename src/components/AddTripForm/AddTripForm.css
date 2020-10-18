@@ -1,0 +1,9 @@
+div.pageHead {
+    border-style: dashed;
+    border-bottom: none;
+    border-width: 1px;
+    border-right: none;
+    border-color: #888888;
+    padding: 20px;
+    margin-top: 10px;
+}

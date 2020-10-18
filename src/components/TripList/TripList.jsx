@@ -19,7 +19,7 @@ function TripList(props) {
     <div class="media">
       <div class="media-left">
         <figure class="image is-48x48">
-          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
+        <img src={`${process.env.PUBLIC_URL}/images/${props.trip.category}.png`}  alt="`${props.trip.category}`"/>
         </figure>
       </div>
       <div class="media-content">
@@ -41,6 +41,8 @@ function TripList(props) {
       />
      &nbsp;&nbsp;&nbsp;&nbsp;
 <JoinButton
+  trip={props.trip}
+  key={props.trip._id}
   riders={props.trip.maxRiders}
   />
 
@@ -62,7 +64,8 @@ function TripList(props) {
         <div class="media">
           <div class="media-left">
             <figure class="image is-48x48">
-              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
+            <img src={`${process.env.PUBLIC_URL}/images/${props.trip.category}.png`}  alt="{props.trip.category}"/>
+
             </figure>
           </div>
           <div class="media-content">

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router';
 import userService from '../../utils/userService';
-
+import './AddTripForm.css';
 
 class AddTripForm extends Component {
   
@@ -44,15 +44,16 @@ class AddTripForm extends Component {
       <div class="columns">
         <div class="column is-3"></div>
         <div class="column is-6">
-        
-        <h1>Add Trip</h1>
+       <div class="pageHead">
+        <h1 class="title">Add New Trip</h1>
+        </div>
         <form
           ref={this.formRef}
           autoComplete="off"
           onSubmit={this.handleSubmit}
         >
           <div className="field">
-            <label>Days (required)</label>
+          <label class="label">Days (required)</label>
             <input
               className="input"
               name="days"
@@ -62,7 +63,7 @@ class AddTripForm extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Start Date Time (required)</label>
+          <label class="label">Start Date Time (required)</label>
             <input type="datetime-local"
               className="input"
               name="startDate"
@@ -72,7 +73,7 @@ class AddTripForm extends Component {
             />
           </div>
           <div className="form-group">
-            <label>End Date (required)</label>
+          <label class="label">End Date (required)</label>
             <input type="date"
               className="input"
               name="endDate"
@@ -82,7 +83,7 @@ class AddTripForm extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Start Point (required)</label>
+          <label class="label">Start Point (required)</label>
             <input
               className="input"
               name="startPoint"
@@ -92,7 +93,7 @@ class AddTripForm extends Component {
             />
           </div>
           <div className="form-group">
-            <label>End Point (required)</label>
+          <label class="label">End Point (required)</label>
             <input
               className="input"
               name="endPoint"
@@ -102,16 +103,16 @@ class AddTripForm extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Google Maps Route Link (Copy from address bar)</label>
+          <label class="label">Short Description</label>
             <input
               className="input"
-              name="googleMaps"
-              value={this.state.formData.googleMaps}
+              name="shortDesc"
+              value={this.state.formData.shortDesc}
               onChange={this.handleChange}
               />
           </div>
           <div className="form-group">
-            <label>Max Riders (required)</label>
+          <label class="label">Max Riders (required)</label>
             <input
               className="input"
               name="maxRiders"
@@ -120,23 +121,25 @@ class AddTripForm extends Component {
               required
             />
           </div>
-          <div className="form-group">
-            <label>Pillion</label>
-            <input
-              className="input"
+            <div class="field">
+              <label class="label">Pillion Rider</label>
+              <div class="select">
+              <select
               name="pillion"
               value={this.state.formData.pillion}
               onChange={this.handleChange}
-              required
-            />
-          </div>
-
-          
-          <div className="form-group">
-          <div className="select">
-          <label>Category</label>
-          <select 
-            name="category"
+              required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            </div>
+         
+            <div class="field">
+              <label class="label">Trip Category</label>
+              <div class="select">
+              <select
+              name="category"
             value={this.state.formData.category}
             onChange={this.handleChange}
             required
@@ -148,7 +151,20 @@ class AddTripForm extends Component {
           </select>
           </div>
           </div>
-          <br /><br /><button
+          <div class="field">
+              <label class="label">All Details</label>
+              
+              <textarea 
+              name="alldetails"
+              value={this.state.formData.category}
+              onChange={this.handleChange}
+              class="textarea" 
+              rows="10" 
+              width="300"
+              placeholder="Meeting point, stops..."></textarea>
+          </div>
+
+          <br /><button
             type="submit"
             className="button is-dark"
             disabled={this.state.invalidForm}

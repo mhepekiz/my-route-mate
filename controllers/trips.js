@@ -16,11 +16,10 @@ module.exports = {
 
   async function index(req, res) {
     let method = { startDate : -1 };
-    const trips = await Trip.find({}).sort(method);
+    const trips = await Trip.find({}).sort(method).limit(6);
     res.status(200).json(trips);
   }
   
-
   async function deleteOne(req, res) {
     const deletedTrip = await Trip.findByIdAndRemove(req.params.id);
     res.status(200).json(deletedTrip);
@@ -30,6 +29,6 @@ module.exports = {
     const updatedTrip = await Trip.findByIdAndUpdate(req.params.id, req.body, {new: true});
     res.status(200).json(updatedTrip);
   }
-  
+
 
   

@@ -2,6 +2,8 @@ import React from 'react';
 import './NavBar.css';
 
 const NavBar = (props) => {
+
+  
   let nav = props.user ?
     <div>
 
@@ -9,9 +11,9 @@ const NavBar = (props) => {
   <div class="hero-body">
     <div class="container">
       <div class="columns">
-        <div class="column is-2"> <img class="logo" src="myroute.png"/></div>
+        <div class="column is-2"> <a href="/"><img class="logo" src="myroute.png"/></a></div>
         <div class="column is-10"> <h2 class="subtitle">
-        <b>|</b> WELCOME, <b>{props.user._id}</b>
+        <b>|</b> WELCOME, <b>{props.user.name} {props.user.admin}</b>
 
       </h2></div>
       </div>
@@ -32,6 +34,8 @@ const NavBar = (props) => {
 
 
     </div>
+
+
     :
     <div>
       
@@ -39,7 +43,7 @@ const NavBar = (props) => {
   <div class="hero-body">
     <div class="container">
       <div class="columns">
-        <div class="column is-2"> <img class="logo" src="myroute.png"/></div>
+        <div class="column is-2"> <a href="/"><img class="logo" src="myroute.png"/></a></div>
         <div class="column is-10"> <h2 class="subtitle">
         <b>|</b> Find Your Best Motorcycle Route Mate
 
@@ -65,11 +69,49 @@ const NavBar = (props) => {
 
     </div>;
 
-  return (
-    <div className='NavBar'>
-      {nav}
-    </div>
-  );
+
+return (
+  <div>
+    {(() => {
+      if (props.user) {
+        return (
+          <div>
+          {(() => {
+            if (props.user.admin==="yes") {
+              return (
+                <div><nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                  ADMIN MENU BAR
+              
+                  <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                  </a>
+                </div>
+              </nav>
+              {nav}</div>
+              )
+            } else if (props.user.admin==="no") {
+              return (
+                <div>{nav}</div>
+              )
+            } 
+          })()}
+        </div>
+        )
+      } else {
+        return (
+          <div className='NavBar'>
+          {nav}
+        </div>
+        )
+      } 
+    })()}
+  </div>
+)
+
+
 };
 
 export default NavBar;
