@@ -73,7 +73,7 @@ class LoginPage extends Component {
         </form>
         </div>
       <div class="column is-4"></div>
-      </div>
+      </div><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       </>
       </div>
       );

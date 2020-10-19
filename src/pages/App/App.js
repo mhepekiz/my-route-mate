@@ -95,6 +95,8 @@ class App extends Component {
         }/>
         <Route exact path='/login' render={({ history }) => 
           <LoginPage
+          user={this.state.user}
+          handleLogout={this.handleLogout}
             handleSignupOrLogin={this.handleSignupOrLogin}
             history={history}
           />
@@ -124,8 +126,13 @@ class App extends Component {
 
         
         </Switch>
-
-    </div>
+        <footer class="footer is-dark">
+  <div class="content has-text-centered">
+    <p>
+    <a class="menu-link" href="/addtrip">ADD NEW TRIP</a> &nbsp;&nbsp; | &nbsp;&nbsp;<a class="menu-link" href="#" onClick={this.handleLogout}>LOGOUT</a>
+    </p>
+  </div>
+</footer>    </div>
     );
   }
 }
