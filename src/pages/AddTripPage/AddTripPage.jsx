@@ -3,8 +3,6 @@ import AddTripForm from '../../components/AddTripForm/AddTripForm';
 import './AddTripPage.css';
 
 
-
-
 class AddTripPage extends Component {
   constructor(props) {
     super(props);
@@ -27,5 +25,7 @@ class AddTripPage extends Component {
     );
   }
 }
+
+
 
 export default AddTripPage;

@@ -15,7 +15,7 @@ class AddTripForm extends Component {
       endPoint: '',
       shortDesc: '',
       maxRiders: '',
-      pillion: 'yes',
+      pillion: '',
       category: '',
       allDetails: ''
     },
