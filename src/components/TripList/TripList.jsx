@@ -6,12 +6,15 @@ import DeleteEditButtons from '../DeleteEditButtons/DeleteEditButtons';
 
 function TripList(props) { 
   
+  let strDate = props.trip.startDate;
+  let startDate = strDate.substring(0, 10);
+
   if (props.user) {
     return (
     <div class="card">
   <div class="card-image">
     <CallMaps 
-    routeMap={props.trip.googleMaps}
+    noMap={props.trip.noMap}
     startPoint={props.trip.startPoint}
     endPoint={props.trip.endPoint}/>
   </div>
@@ -29,7 +32,7 @@ function TripList(props) {
     </div>
 
     <div class="content">
-     <b>Start Date :</b> {props.trip.startDate}<br />
+     <b>Start Date :</b> {startDate}<br />
      <b>End Date   :</b> {props.trip.endDate}
       <br />
      <DeleteEditButtons

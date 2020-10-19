@@ -16,7 +16,7 @@ module.exports = {
 
   async function index(req, res) {
     let method = { startDate : -1 };
-    const trips = await Trip.find({}).sort(method).limit(6);
+    const trips = await Trip.find({}).sort(method);
     res.status(200).json(trips);
   }
   

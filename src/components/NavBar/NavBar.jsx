@@ -13,7 +13,7 @@ const NavBar = (props) => {
       <div class="columns">
         <div class="column is-2"> <a href="/"><img class="logo" src="myroute.png"/></a></div>
         <div class="column is-10"> <h2 class="subtitle">
-        <b>|</b> WELCOME, <b>{props.user.name} {props.user.admin}</b>
+        <b>|</b> WELCOME, <b>{props.user.name}</b>
 
       </h2></div>
       </div>
@@ -60,7 +60,7 @@ const NavBar = (props) => {
   <div class="hero-body">
     <div class="container">
       <h4 class="is-h4">
-      <a class="menu-link" href="/addtrip">ADD NEW ROUTE</a> &nbsp;&nbsp; | &nbsp;&nbsp;<a class="menu-link" href="/signup">SIGNUP</a> &nbsp;&nbsp; | &nbsp;&nbsp;<a class="menu-link" href="/login">LOGIN</a> &nbsp;&nbsp; | 
+      <a class="menu-link" href="/addtrip">ADD NEW TRIP</a> &nbsp;&nbsp; | &nbsp;&nbsp;<a class="menu-link" href="/signup">SIGNUP</a> &nbsp;&nbsp; | &nbsp;&nbsp;<a class="menu-link" href="/login">LOGIN</a> &nbsp;&nbsp; | 
       </h4>
     </div>
   </div>
@@ -79,16 +79,38 @@ return (
           {(() => {
             if (props.user.admin==="yes") {
               return (
-                <div><nav class="navbar" role="navigation" aria-label="main navigation">
+                <div><nav class="navbar is-danger" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
-                  ADMIN MENU BAR
+                <img class="adminlogo" src="images/admin-icon.png"/>
               
                   <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                   </a>
+                  
                 </div>
+
+                <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">
+        Home
+      </a>
+
+      <a class="navbar-item">
+        Documentation
+      </a>
+
+      <a class="navbar-item">
+        Users
+      </a>
+
+      <a class="navbar-item">
+        Trips
+      </a>
+      </div>
+    </div>
+                
               </nav>
               {nav}</div>
               )

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router';
-import userService from '../../utils/userService';
 import './AddTripForm.css';
+import NavBar from '../../components/NavBar/NavBar';
+
 
 class AddTripForm extends Component {
   
@@ -41,11 +42,13 @@ class AddTripForm extends Component {
   render() {
     return (
       <>
+      <NavBar
+      user={this.props.user} />
       <div class="columns">
         <div class="column is-3"></div>
         <div class="column is-6">
        <div class="pageHead">
-        <h1 class="title">Add New Trip</h1>
+        <h1 class="title">Add New Trip by {this.props.user.name}</h1>
         </div>
         <form
           ref={this.formRef}
@@ -102,6 +105,18 @@ class AddTripForm extends Component {
               required
             />
           </div>
+          
+          <div className="form-group">
+          <label class="label">Don't Create Map </label>
+          <label class="checkbox"><input
+              className="checkbox"
+              type="checkbox"
+              name="noMap"
+              value={this.state.formData.noMap}
+              onChange={this.handleChange}
+              /></label>
+          </div>
+          
           <div className="form-group">
           <label class="label">Short Description</label>
             <input
@@ -155,8 +170,8 @@ class AddTripForm extends Component {
               <label class="label">All Details</label>
               
               <textarea 
-              name="alldetails"
-              value={this.state.formData.category}
+              name="allDetails"
+              value={this.state.formData.allDetails}
               onChange={this.handleChange}
               class="textarea" 
               rows="10" 

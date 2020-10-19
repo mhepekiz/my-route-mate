@@ -13,7 +13,7 @@ class DeleteEditButtons extends Component {
         if ((this.props.user._id === this.props.tripUser) || (this.props.user.admin==="yes")) {
       
             return( 
-              <>
+              <><br /><br />
             <Link
             className='button is-dark is-small'
             to={{

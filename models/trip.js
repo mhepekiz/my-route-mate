@@ -8,10 +8,12 @@ const tripSchema = new mongoose.Schema({
     endDate: String,
     startPoint: String,
     endPoint: String,
+    noMap: {type: String, enum: ['yes', 'no'], default: 'no'},
     shortDesc: String,
     maxRiders: String,
     pillion: {type: String, enum: ['yes', 'no'], default: 'yes'},
-    category: String
+    category: String,
+    allDetails: String
 }, {
     timestamps: true
 });

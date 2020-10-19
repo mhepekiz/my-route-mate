@@ -9,6 +9,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import AddTripPage from '../AddTripPage/AddTripPage';
 import EditTripPage from '../EditTripPage/EditTripPage';
 
+
 class App extends Component {
   
   constructor(){
@@ -97,7 +98,7 @@ class App extends Component {
             userService.getUser() ?
           <AddTripPage
           history={history}
-          thisUser={this.state.user}
+          user={this.state.user}
           handleAddTrip={this.handleAddTrip}
             /> :
           <Redirect to='/login' />

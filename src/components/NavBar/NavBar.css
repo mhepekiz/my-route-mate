@@ -10,6 +10,11 @@ a.menu-link:hover {
 img.logo{
     width: 300px;
 }
+img.adminlogo{
+    width: 55px;
+    height: 60px;
+}
+
 
 .subtitle {
     margin-top: 28px;

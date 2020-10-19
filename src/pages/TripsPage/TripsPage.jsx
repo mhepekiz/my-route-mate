@@ -14,7 +14,7 @@ const TripsPage = (props) => {
         />
     
     <>
-    <div className="container-trip">
+    <div className="container">
       <div className="TripListPage-grid">
       {props.trips.map(trip => (
           <TripList trip={trip} key={trip._id}
