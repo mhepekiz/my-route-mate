@@ -48,7 +48,7 @@ class EditTripPage extends Component {
             <input
               className="input"
               name="days"
-              value={this.state.formData.id}
+              value={this.state.formData.days}
               onChange={this.handleChange}
               required
             />
@@ -92,6 +92,16 @@ class EditTripPage extends Component {
               onChange={this.handleChange}
               required
             />
+          </div>
+          <div className="form-group">
+          <label class="label">Don't Create Map <input
+              className="checkbox"
+              type="checkbox"
+              name="noMap"
+              value={this.state.formData.noMap}
+              onChange={this.handleChange}
+              />
+              </label><br />
           </div>
           <div className="form-group">
           <label class="label">Short Description</label>
@@ -146,7 +156,7 @@ class EditTripPage extends Component {
               <label class="label">All Details</label>
               <textarea 
               name="alldetails"
-              value={this.state.formData.category}
+              value={this.state.formData.alldetails}
               onChange={this.handleChange}
               class="textarea" 
               rows="10" 

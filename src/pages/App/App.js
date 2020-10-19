@@ -46,6 +46,7 @@ class App extends Component {
     );
   };
 
+  
 
 
   handleDeleteTrip = async id => {
@@ -68,12 +69,16 @@ class App extends Component {
     );
    }
 
+  
 
   render() {
     return (
 
       <div>
         <Switch>
+
+       
+    
         <Route exact path='/' render={() =>
           <TripsPage
             user={this.state.user}
@@ -100,11 +105,12 @@ class App extends Component {
           history={history}
           user={this.state.user}
           handleAddTrip={this.handleAddTrip}
+          handleLogout={this.handleLogout}
             /> :
           <Redirect to='/login' />
           )}
         />
-
+      
       
         <Route exact path='/edit' render={({ location }) => (
           userService.getUser() ?
@@ -115,6 +121,8 @@ class App extends Component {
             <Redirect to='/login' />
             )}
           />
+
+        
         </Switch>
 
     </div>

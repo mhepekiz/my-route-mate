@@ -22,7 +22,7 @@ function TripList(props) {
     <div class="media">
       <div class="media-left">
         <figure class="image is-48x48">
-        <img src={`${process.env.PUBLIC_URL}/images/${props.trip.category}.png`}  alt="`${props.trip.category}`"/>
+        <img src={`http://my-route-mate.herokuapp.com/images/${props.trip.category}.png`}  alt="`${props.trip.category}`"/>
         </figure>
       </div>
       <div class="media-content">
@@ -34,7 +34,13 @@ function TripList(props) {
     <div class="content">
      <b>Start Date :</b> {startDate}<br />
      <b>End Date   :</b> {props.trip.endDate}
-      <br />
+     <br /><b>Short Description : </b>{props.trip.shortDesc}<br /><br />
+
+     <JoinButton
+  trip={props.trip}
+  key={props.trip._id}
+  riders={props.trip.maxRiders}
+  />
      <DeleteEditButtons
      trip={props.trip} 
      key={props.trip._id}
@@ -42,24 +48,29 @@ function TripList(props) {
      tripUser={props.trip.userid}
      user={props.user}
       />
-     &nbsp;&nbsp;&nbsp;&nbsp;
-<JoinButton
-  trip={props.trip}
-  key={props.trip._id}
-  riders={props.trip.maxRiders}
-  />
+     
 
-    </div>
+    
+   </div>
+   <br /><div class="container">
+  <div class="notification is-warning">
+  <div>Need Hiking Ideas? <a href="http://thesublimest.herokuapp.com/" target="_blank">The Sublimest by SR</a></div>
+    <div>Need Camping Ideas? <a href="https://campster-sei.herokuapp.com/login" target="_blank">Campster by CW</a></div>
+  
   </div>
-</div>     
+</div>
+  </div>
+    </div>
     );
   } else {
+    let strDate = props.trip.startDate;
+    let startDate = strDate.substring(0, 10);
     return( 
     
       <div class="card">
       <div class="card-image">
         <CallMaps 
-        routeMap={props.trip.googleMaps}
+        noMap={props.trip.noMap}
         startPoint={props.trip.startPoint}
         endPoint={props.trip.endPoint}/>
       </div>
@@ -78,9 +89,17 @@ function TripList(props) {
         </div>
     
         <div class="content">
-         <b>Start Date :</b> {props.trip.startDate}<br />
-         <b>End Date   :</b> {props.trip.endDate}
-          <br />
+     <b>Start Date :</b> {startDate}<br />
+     <b>End Date   :</b> {props.trip.endDate}
+     <br /><b>Short Description : </b>{props.trip.shortDesc}<br /><br />
+
+    <br /><div class="container">
+  <div class="notification">
+  <div>Need Hiking Ideas? <a href="http://thesublimest.herokuapp.com/" target="_blank">The Sublimest by SR</a></div>
+    <div>Need Camping Ideas? <a href="https://campster-sei.herokuapp.com/login" target="_blank">Campster by CW</a></div>
+  
+  </div>
+</div>
           </div>
   </div>
 </div>     

@@ -29,6 +29,16 @@ class LoginPage extends Component {
       this.props.history.push('/');
     } catch (err) {
       // Do not alert in your projects,
+      Bulma().alert({
+        type: 'danger',
+        title: 'Alert',
+        body: 'Email address or Password Wrong But I don\'t want to say which one!',
+        confirm: {
+            label: 'I feel lucky, try again',
+            destroy: false
+        }
+    });
+
       // show a modal or some UI instead
     }
   }

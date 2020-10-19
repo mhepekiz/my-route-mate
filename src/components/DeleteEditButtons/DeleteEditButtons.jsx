@@ -4,16 +4,14 @@ import {Link} from 'react-router-dom';
 
 class DeleteEditButtons extends Component {
 
-  
     render() {
-
       return (
         <div>
       {(() => {
         if ((this.props.user._id === this.props.tripUser) || (this.props.user.admin==="yes")) {
-      
+    
             return( 
-              <><br /><br />
+              <>
             <Link
             className='button is-dark is-small'
             to={{
@@ -32,7 +30,7 @@ class DeleteEditButtons extends Component {
             );
          
         } else {
-          return(<div></div>);
+          return(<div><br /></div>);
         }
       })()}
     </div>

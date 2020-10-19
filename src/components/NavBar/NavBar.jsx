@@ -26,7 +26,7 @@ const NavBar = (props) => {
   <div class="hero-body">
     <div class="container">
       <h4 class="is-h4">
-        <a class="menu-link" href="/addtrip">ADD NEW TRIP</a> &nbsp;&nbsp; | &nbsp;&nbsp;<a class="menu-link" href="#">MY PROFILE</a> &nbsp;&nbsp; | &nbsp;&nbsp; <a class="menu-link" href="#" onClick={props.handleLogout}>LOGOUT</a>
+        <a class="menu-link" href="/addtrip">ADD NEW TRIP</a> &nbsp;&nbsp; | &nbsp;&nbsp;<a class="menu-link" href="#" onClick={props.handleLogout}>LOGOUT</a>
       </h4>
     </div>
   </div>

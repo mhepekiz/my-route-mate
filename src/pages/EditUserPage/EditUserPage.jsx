@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
-import './SignupForm.css';
+import './EditUserPage.css';
 
 class SignupForm extends Component {
 
   state = {
-    name: '',
-    email: '',
-    password: '',
-    passwordConf: ''
+   
   };
 
   handleChange = (e) => {
@@ -23,8 +20,8 @@ class SignupForm extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await userService.signup(this.state);
-      this.props.handleSignupOrLogin();
+      await userService.update(this.state);
+      this.props.handleUpdateUser();
       // Successfully signed up - show GamePage
       this.props.history.push('/');
     } catch (err) {
@@ -34,7 +31,7 @@ class SignupForm extends Component {
   }
 
   isFormInvalid() {
-    return !(this.state.username && this.state.name && this.state.phone && this.state.email && this.state.cyclebrand  && this.state.cyclemodel && this.state.category && this.state.rideyears && this.state.detailedinfo && this.state.password === this.state.passwordConf);
+    return !(this.state.username && this.state.name && this.state.phone && this.state.email && this.state.cyclebrand  && this.state.cyclemodel && this.state.category && this.state.rideyears && this.state.detailedinfo);
   }
 
   render() {

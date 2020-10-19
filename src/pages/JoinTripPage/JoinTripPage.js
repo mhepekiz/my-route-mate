@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import AddTripForm from '../../components/AddTripForm/AddTripForm';
-import './AddTripPage.css';
+import JoinForm from '../../components/JoinForm/JoinForm';
+import './JoinTripPage.css';
 
 
-
-
-class AddTripPage extends Component {
+class JoinTripPage extends Component {
   constructor(props) {
     super(props);
     this.state = {message: ''}
@@ -18,8 +16,9 @@ class AddTripPage extends Component {
   render() {
     return (
       <div className='AddTripPage'>
-        <AddTripForm {...this.props}
+        <JoinForm {...this.props}
         user={this.props.user}
+        trip={this.state.trip}
         handleLogout={this.props.handleLogout}
         updateMessage={this.updateMessage} />
         <p>{this.state.message}</p>
@@ -28,4 +27,4 @@ class AddTripPage extends Component {
   }
 }
 
-export default AddTripPage;
+export default JoinTripPage;

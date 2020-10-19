@@ -13,10 +13,11 @@ class AddTripForm extends Component {
       endDate: '',
       startPoint: '',
       endPoint: '',
-      googleMaps: '',
+      shortDesc: '',
       maxRiders: '',
       pillion: 'yes',
-      category: ''
+      category: '',
+      allDetails: ''
     },
   };
 
@@ -43,7 +44,9 @@ class AddTripForm extends Component {
     return (
       <>
       <NavBar
-      user={this.props.user} />
+      user={this.props.user}
+      handleLogout={this.props.handleLogout}
+       />
       <div class="columns">
         <div class="column is-3"></div>
         <div class="column is-6">
@@ -107,14 +110,14 @@ class AddTripForm extends Component {
           </div>
           
           <div className="form-group">
-          <label class="label">Don't Create Map </label>
-          <label class="checkbox"><input
+          <label class="label">Don't Create Map <input
               className="checkbox"
               type="checkbox"
               name="noMap"
               value={this.state.formData.noMap}
               onChange={this.handleChange}
-              /></label>
+              />
+              </label><br />
           </div>
           
           <div className="form-group">
@@ -159,10 +162,12 @@ class AddTripForm extends Component {
             onChange={this.handleChange}
             required
             >
-              <option value="Racing">Racing</option>
-              <option value="Touring">Touring</option>
-              <option value="Enduro">Enduro</option>
-              <option value="Off-Road">Off-Road</option>
+              <option value="">Select</option>
+              <option value="racing">Racing</option>
+              <option value="touring">Touring</option>
+              <option value="enduro">Enduro</option>
+              <option value="off-road">Off-Road</option>
+              <option value="chopper">Chopper</option>
           </select>
           </div>
           </div>
