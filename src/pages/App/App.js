@@ -75,10 +75,8 @@ class App extends Component {
     return (
 
       <div>
+        
         <Switch>
-
-       
-    
         <Route exact path='/' render={() =>
           <TripsPage
             user={this.state.user}
@@ -95,7 +93,7 @@ class App extends Component {
         }/>
         <Route exact path='/login' render={({ history }) => 
           <LoginPage
-          user={this.state.user}
+          user={1}
           handleLogout={this.handleLogout}
             handleSignupOrLogin={this.handleSignupOrLogin}
             history={history}
